@@ -1,2 +1,2 @@
 # vidmotsforritun-verk-4 
-link: [verkefnið](https://kleina13.github.io/vidmotsforritun-verk-4/){:target="_blank"}
+link: [verkefnið](https://kleina13.github.io/vidmotsforritun-verk-4/)
