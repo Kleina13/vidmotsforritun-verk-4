@@ -41,4 +41,4 @@ handTrack.startVideo(video)
 
 
 handTrack.load(modelParams)
-    .then(lmodel => { model = lmodel });
+    .then(lmodel => { model = lmodel; });
