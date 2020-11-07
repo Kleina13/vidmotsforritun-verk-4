@@ -4,7 +4,7 @@ const modelParams = {
     maxNumBoxes: 20,        // maximum number of boxes to detect
     iouThreshold: 0.5,      // ioU threshold for non-max suppression
     scoreThreshold: 0.79,    // confidence threshold for predictions.
-}
+};
 
 navigator.getUserMedia = 
     navigator.getUserMedia || 
@@ -19,7 +19,10 @@ let model;
 
 function runDetection() {
     model.detect(video)
-        .then(predictions => { console.log(predictions) })
+        .then(predictions => { 
+            console.log(predictions);
+            model.renderPredictions(predictions);
+        });
 }
 
 handTrack.startVideo(video)
@@ -28,14 +31,13 @@ handTrack.startVideo(video)
             navigator.getUserMedia(
                 { video: {} }, 
                 stream => { 
-                    video.srcObject = stream 
-                    setInterval(runDetection, 1000)
+                    video.srcObject = stream;
+                    setInterval(runDetection, 1000);
                 },
                 err => console.log(err)
             );
         }
     });
-
 
 
 handTrack.load(modelParams)
