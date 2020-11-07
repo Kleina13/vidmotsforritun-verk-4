@@ -12,8 +12,8 @@ navigator.getUserMedia =
     navigator.mozGetUserMedia ||
     navigator.msGetUserMedia;
 
-const video   = document.getElementById('video'); 
-const canvas  = document.getElementById('canvas');
+const video   = document.getElementById('#video'); 
+const canvas  = document.getElementById('#canvas');
 const context = canvas.getContext('2d');
 let model;
 
@@ -41,4 +41,4 @@ handTrack.startVideo(video)
 
 
 handTrack.load(modelParams)
-    .then(load_model => { model = load_model });
+    .then(lmodel => { model = lmodel });
