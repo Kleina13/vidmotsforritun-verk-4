@@ -4,14 +4,22 @@ navigator.getUserMedia =
     navigator.mozGetUserMedia ||
     navigator.msGetUserMedia;
 
-const img = document.getElementById('img'); 
-const canvas = document.getElementById('canvas');
+const video   = document.getElementById('video'); 
+const canvas  = document.getElementById('canvas');
 const context = canvas.getContext('2d');
+let model;
 
-// Load the model.
+handTrack.startVideo(video)
+    .then(status => {
+        if (status) { 
+            navigator.getUserMedia(
+                { video: {} }, 
+                stream => { video.srcObject = stream },
+                err => console.log(err)
+            );
+        }
+    });
+
+
 handTrack.load()
-    .then(model => {
-        // detect objects in the image.
-        model.detect(img)
-            .then(predictions => { console.log('Predictions: ', predictions); });
-});
+    .then(load_model => { model = load_model });
