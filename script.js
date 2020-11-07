@@ -21,7 +21,7 @@ function runDetection() {
     model.detect(video)
         .then(predictions => { 
             console.log(predictions);
-            model.renderPredictions(predictions);
+            model.renderPredictions(predictions, canvas, context, video);
         });
 }
 
