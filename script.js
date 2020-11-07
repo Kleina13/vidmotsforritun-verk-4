@@ -12,16 +12,16 @@ navigator.getUserMedia =
     navigator.mozGetUserMedia ||
     navigator.msGetUserMedia;
 
-const video   = document.querySelector('#video'); 
-const canvas  = document.querySelector('#canvas');
-const context = canvas.getContext('2d');
+const video  = document.querySelector('#video'); 
+const canvas = document.querySelector('#canvas');
+const ctx    = canvas.getContext('2d');
 let model;
 
 function runDetection() {
     model.detect(video)
         .then(predictions => { 
             console.log(predictions);
-            model.renderPredictions(predictions, canvas, context, video);
+            model.renderPredictions(predictions, canvas, ctx, video);
         });
 }
 
@@ -41,4 +41,4 @@ handTrack.startVideo(video)
 
 
 handTrack.load(modelParams)
-    .then(lmodel => { model = lmodel; });
+    .then(lmodel => model = lmodel);
