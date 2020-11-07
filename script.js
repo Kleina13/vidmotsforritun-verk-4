@@ -9,9 +9,9 @@ const modelParams = {
 
 // to get navigator working on every browser
 navigator.getUserMedia = 
-    navigator.getUserMedia || 
-    navigator.webkitGetUserMedia ||
-    navigator.mozGetUserMedia ||
+    navigator.getUserMedia      || 
+    navigator.webkitGetUserMedia||
+    navigator.mozGetUserMedia   ||
     navigator.msGetUserMedia;
 
 // vars
@@ -27,6 +27,7 @@ const runDetection = () => {
         .then(predictions => { 
             console.log(predictions);
             model.renderPredictions(predictions, canvas, ctx, video);
+            requestAnimationFrame(runDetection)
         });
 }
 
@@ -38,7 +39,7 @@ handTrack.startVideo(video)
                 { video: {} }, 
                 stream => { 
                     video.srcObject = stream;
-                    setInterval(runDetection, 250); // run detection func á 1/4 af sekondu
+                    runDetection() // run detection func
                 },
                 err => console.log(err)
             );
