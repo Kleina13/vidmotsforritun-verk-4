@@ -12,8 +12,8 @@ navigator.getUserMedia =
     navigator.mozGetUserMedia ||
     navigator.msGetUserMedia;
 
-const video   = document.getElementById('#video'); 
-const canvas  = document.getElementById('#canvas');
+const video   = document.querySelector('#video'); 
+const canvas  = document.querySelector('#canvas');
 const context = canvas.getContext('2d');
 let model;
 
