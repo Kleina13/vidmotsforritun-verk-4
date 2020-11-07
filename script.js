@@ -9,7 +9,7 @@ const modelParams = {
 
 // to get navigator working on every browser
 navigator.getUserMedia = 
-    navigator.getUserMedia      || 
+    navigator.getUserMedia      ||
     navigator.webkitGetUserMedia||
     navigator.mozGetUserMedia   ||
     navigator.msGetUserMedia;
