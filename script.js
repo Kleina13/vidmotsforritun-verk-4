@@ -2,16 +2,16 @@
 const modelParams = {
     flipHorizontal: true,   // flip e.g for video 
     imageScaleFactor: 0.7,  // reduce input image size for gains in speed.
-    maxNumBoxes: 20,        // maximum number of boxes to detect
+    maxNumBoxes: 1,        // maximum number of boxes to detect
     iouThreshold: 0.5,      // ioU threshold for non-max suppression
     scoreThreshold: 0.79,   // confidence threshold for predictions.
 };
 
 // to get navigator working on every browser
-navigator.getUserMedia = 
-    navigator.getUserMedia      ||
-    navigator.webkitGetUserMedia||
-    navigator.mozGetUserMedia   ||
+navigator.getUserMedia =      // or
+    navigator.getUserMedia       ||
+    navigator.webkitGetUserMedia ||
+    navigator.mozGetUserMedia    ||
     navigator.msGetUserMedia;
 
 // vars
@@ -27,7 +27,13 @@ const runDetection = () => {
         .then(predictions => { 
             console.log(predictions);
             model.renderPredictions(predictions, canvas, ctx, video);
-            requestAnimationFrame(runDetection)
+
+            if (predictions > 0) {
+                alert("HAND AAAAAAA")
+            }
+
+
+            requestAnimationFrame(runDetection);
         });
 }
 
