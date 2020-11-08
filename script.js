@@ -29,7 +29,7 @@ const runDetection = () => {
             model.renderPredictions(predictions, canvas, ctx, video);
 
             if (predictions.bbox.length() > 0) {
-                video.style = "display: block;"
+                video.style = "";
             }
 
 
