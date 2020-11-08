@@ -15,26 +15,27 @@ navigator.getUserMedia =      // or
     navigator.msGetUserMedia;
 
 // vars
-const audio  = document.querySelector('#audio')
+const audio  = document.querySelector('#audio');
 const video  = document.querySelector('#video'); 
 const canvas = document.querySelector('#canvas');
 const ctx    = canvas.getContext('2d');
 let model;
 
 // run detection teiknar það sem api sér og consle logar það 
-// (temp for the most part, útreiknigar koma hingað seinna)
+// spilar audio ef það er hendi á skjánum
 const runDetection = () => {
     model.detect(video)
         .then(predictions => { 
             console.log(predictions);
             model.renderPredictions(predictions, canvas, ctx, video);
 
+            // if hand on screen
+            // play audio
             if (predictions.length > 0) {
                 audio.play();
             } else {
                 audio.pause();
             }
-
 
             requestAnimationFrame(runDetection);
         });
