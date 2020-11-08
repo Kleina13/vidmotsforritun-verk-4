@@ -15,6 +15,7 @@ navigator.getUserMedia =      // or
     navigator.msGetUserMedia;
 
 // vars
+const audio  = document.querySelector('#audio')
 const video  = document.querySelector('#video'); 
 const canvas = document.querySelector('#canvas');
 const ctx    = canvas.getContext('2d');
@@ -28,9 +29,9 @@ const runDetection = () => {
             console.log(predictions);
             model.renderPredictions(predictions, canvas, ctx, video);
 
-            /*if (predictions.bbox > 0) {
-                video.style = "";
-            }*/
+            if (predictions.length > 0) {
+                audio.play();
+            }
 
 
             requestAnimationFrame(runDetection);
