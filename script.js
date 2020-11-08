@@ -28,8 +28,8 @@ const runDetection = () => {
             console.log(predictions);
             model.renderPredictions(predictions, canvas, ctx, video);
 
-            if (predictions > 0) {
-                alert("HAND AAAAAAA")
+            if (predictions.length() > 0) {
+                video.style = "display: block;"
             }
 
 
