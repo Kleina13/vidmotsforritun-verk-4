@@ -28,9 +28,9 @@ const runDetection = () => {
             console.log(predictions);
             model.renderPredictions(predictions, canvas, ctx, video);
 
-            if (predictions.bbox > 0) {
+            /*if (predictions.bbox > 0) {
                 video.style = "";
-            }
+            }*/
 
 
             requestAnimationFrame(runDetection);
